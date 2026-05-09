@@ -1,0 +1,48 @@
+{
+  "name": "manidhar-web-lab",
+  "version": "1.0.0",
+  "description": "Web Product Laboratory - Scalable architecture for rapid production website development",
+  "type": "module",
+  "author": "Manidhar",
+  "license": "MIT",
+  "homepage": "https://github.com/Manidhar8008/manidhar-web-lab",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Manidhar8008/manidhar-web-lab.git"
+  },
+  "keywords": [
+    "react",
+    "vite",
+    "tailwind",
+    "landing-pages",
+    "portfolio",
+    "saas",
+    "web-development",
+    "component-library"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "create-project": "bash create-project.sh",
+    "docs": "echo 'See docs/ folder for full documentation'",
+    "info": "echo 'Web Product Laboratory - Building fast products, at scale'"
+  },
+  "workspaces": [
+    "projects/*",
+    "templates/*"
+  ],
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0"
+  },
+  "documentation": {
+    "quickStart": "See QUICKSTART.md",
+    "architecture": "See docs/ARCHITECTURE.md",
+    "addingProjects": "See docs/ADDING_PROJECTS.md",
+    "deployment": "See docs/DEPLOYMENT.md",
+    "components": "See docs/COMPONENTS.md",
+    "projectIndex": "See PROJECTS.md"
+  }
+}
