@@ -1,0 +1,17 @@
+{
+  "title": "AI SaaS Landing",
+  "description": "Futuristic landing page for AI-powered SaaS products with conversion optimization",
+  "type": "demo",
+  "status": "live",
+  "live_url": "#",
+  "github_folder": "projects/ai-saas-landing",
+  "screenshot_path": "assets/screenshots/ai-saas-landing-hero.png",
+  "tags": ["React", "Tailwind", "Framer Motion", "Landing Page"],
+  "performance": {
+    "lighthouse": 92,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 45
+  },
+  "featured": true,
+  "order": 1
+}
