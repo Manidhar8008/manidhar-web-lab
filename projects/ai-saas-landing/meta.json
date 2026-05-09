@@ -1,12 +1,16 @@
 {
-  "title": "AI SaaS Landing Page",
-  "description": "Premium dark-mode AI product landing page with high-converting sections",
+  "title": "Aether AI - Intelligent Automation",
+  "description": "Premium dark-mode AI SaaS landing page showcasing enterprise-grade intelligent automation. Features smooth Framer Motion animations, responsive design, and modern glassmorphism UI patterns.",
   "type": "demo",
   "status": "live",
-  "live_url": "https://manidhar-web-lab.vercel.app",
-  "screenshot_path": "assets/screenshots/ai-saas-landing-hero.png",
-  "tags": ["React", "Tailwind", "Framer Motion", "Vite"],
-  "performance": { "lighthouse": 95 },
+  "live_url": "https://ai-saas-landing.vercel.app",
+  "screenshot_path": "assets/screenshots/ai-saas-landing.png",
+  "tags": ["React", "Vite", "Tailwind", "Framer Motion", "SaaS", "Landing Page", "AI"],
+  "performance_metrics": {
+    "lighthouse_score": 96,
+    "page_size_kb": 82,
+    "load_time_ms": 950
+  },
   "featured": true,
   "order": 1
 }
