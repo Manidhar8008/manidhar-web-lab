@@ -1,0 +1,17 @@
+{
+  "title": "Creative Agency Site",
+  "description": "Portfolio website for creative and marketing agencies with bold visuals",
+  "type": "demo",
+  "status": "live",
+  "live_url": "#",
+  "github_folder": "projects/agency-site",
+  "screenshot_path": "assets/screenshots/agency-site-hero.png",
+  "tags": ["React", "Motion", "Gallery", "Agency"],
+  "performance": {
+    "lighthouse": 92,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 50
+  },
+  "featured": true,
+  "order": 5
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Fintech Dashboard",
+  "description": "Interactive financial dashboard UI with real-time data visualization capabilities",
+  "type": "demo",
+  "status": "live",
+  "live_url": "#",
+  "github_folder": "projects/fintech-dashboard",
+  "screenshot_path": "assets/screenshots/fintech-dashboard-hero.png",
+  "tags": ["React", "Dashboard", "Data Viz", "UI Components"],
+  "performance": {
+    "lighthouse": 90,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 52
+  },
+  "featured": true,
+  "order": 4
+}

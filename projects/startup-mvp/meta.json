@@ -1,0 +1,17 @@
+{
+  "title": "Startup MVP",
+  "description": "Minimal viable product showcase for early-stage startups with rapid deployment",
+  "type": "demo",
+  "status": "live",
+  "live_url": "#",
+  "github_folder": "projects/startup-mvp",
+  "screenshot_path": "assets/screenshots/startup-mvp-hero.png",
+  "tags": ["React", "Vite", "Tailwind", "MVP"],
+  "performance": {
+    "lighthouse": 91,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 42
+  },
+  "featured": true,
+  "order": 2
+}

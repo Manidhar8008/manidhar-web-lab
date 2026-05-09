@@ -1,17 +1,12 @@
 {
-  "title": "AI SaaS Landing",
-  "description": "Futuristic landing page for AI-powered SaaS products with conversion optimization",
+  "title": "AI SaaS Landing Page",
+  "description": "Premium dark-mode AI product landing page with high-converting sections",
   "type": "demo",
   "status": "live",
-  "live_url": "#",
-  "github_folder": "projects/ai-saas-landing",
+  "live_url": "https://manidhar-web-lab.vercel.app",
   "screenshot_path": "assets/screenshots/ai-saas-landing-hero.png",
-  "tags": ["React", "Tailwind", "Framer Motion", "Landing Page"],
-  "performance": {
-    "lighthouse": 92,
-    "core_web_vitals": "all_good",
-    "bundle_size_kb": 45
-  },
+  "tags": ["React", "Tailwind", "Framer Motion", "Vite"],
+  "performance": { "lighthouse": 95 },
   "featured": true,
   "order": 1
 }

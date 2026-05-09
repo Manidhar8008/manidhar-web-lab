@@ -1,0 +1,17 @@
+{
+  "title": "Dark Portfolio",
+  "description": "Professional portfolio with dark theme, smooth animations, and project showcase",
+  "type": "demo",
+  "status": "live",
+  "live_url": "#",
+  "github_folder": "projects/portfolio-dark",
+  "screenshot_path": "assets/screenshots/portfolio-dark-hero.png",
+  "tags": ["React", "Dark Mode", "Portfolio", "Animations"],
+  "performance": {
+    "lighthouse": 93,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 48
+  },
+  "featured": true,
+  "order": 3
+}

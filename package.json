@@ -1,7 +1,7 @@
 {
   "name": "manidhar-web-lab",
   "version": "1.0.0",
-  "description": "Web Product Laboratory - Scalable architecture for rapid production website development",
+  "description": "Web Product Laboratory - Premium freelance portfolio & client acquisition engine",
   "type": "module",
   "author": "Manidhar",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "landing-pages",
     "portfolio",
     "saas",
+    "freelance",
     "web-development",
     "component-library"
   ],
@@ -26,8 +27,10 @@
   },
   "scripts": {
     "create-project": "bash create-project.sh",
+    "generate-grid": "node scripts/generate-projects-grid.js",
+    "list-projects": "echo 'Scanning projects...' && node scripts/generate-projects-grid.js",
     "docs": "echo 'See docs/ folder for full documentation'",
-    "info": "echo 'Web Product Laboratory - Building fast products, at scale'"
+    "info": "echo 'Web Product Laboratory - Freelance Portfolio & Client Acquisition Engine'"
   },
   "workspaces": [
     "projects/*",
@@ -39,6 +42,7 @@
   },
   "documentation": {
     "quickStart": "See QUICKSTART.md",
+    "portfolio": "See README.md",
     "architecture": "See docs/ARCHITECTURE.md",
     "addingProjects": "See docs/ADDING_PROJECTS.md",
     "deployment": "See docs/DEPLOYMENT.md",

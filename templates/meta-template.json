@@ -1,0 +1,17 @@
+{
+  "title": "Project Name",
+  "description": "One-line description of what this project is and does",
+  "type": "demo",
+  "status": "building",
+  "live_url": "#",
+  "github_folder": "projects/project-name",
+  "screenshot_path": "assets/screenshots/project-name-hero.png",
+  "tags": ["React", "Tailwind", "Technology Tags"],
+  "performance": {
+    "lighthouse": 0,
+    "core_web_vitals": "pending",
+    "bundle_size_kb": 0
+  },
+  "featured": false,
+  "order": 999
+}

@@ -1,142 +1,341 @@
 # Adding New Projects
 
-This guide explains how to add a new project to the Web Product Laboratory.
+Complete guide for adding projects to the Web Product Laboratory and making them appear in the portfolio homepage.
 
-## Quick Start
+## The Workflow
 
-### 1. Clone a Template
+### 1. Create Project (Auto-scaffolded)
 
 ```bash
-cp -r templates/react-tailwind-template projects/my-new-project
-cd projects/my-new-project
-npm install
+./create-project.sh
 ```
 
-### 2. Project Structure
+Follow prompts:
+- Project name (kebab-case, e.g., `my-saas-landing`)
+- Project type (`demo` or `client`)
+- Project description
+
+**What happens automatically:**
+- ✅ Project folder created in `/projects/`
+- ✅ Dependencies installed
+- ✅ `meta.json` template generated
+- ✅ Ready to start coding
+
+### 2. Develop Your Project
+
+```bash
+cd projects/my-project
+npm run dev
+```
+
+Build as usual. Everything is independent and hot-reloads.
+
+### 3. Update Project Metadata
+
+Edit `projects/my-project/meta.json`:
+
+```json
+{
+  "title": "My SaaS Landing",
+  "description": "Beautiful landing page for AI product with high conversion",
+  "type": "demo",
+  "status": "live",
+  "live_url": "https://my-saas-landing.vercel.app",
+  "github_folder": "projects/my-project",
+  "screenshot_path": "assets/screenshots/my-project-hero.png",
+  "tags": ["React", "Tailwind", "Framer Motion", "Landing Page"],
+  "performance": {
+    "lighthouse": 92,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 45
+  },
+  "featured": true,
+  "order": 6
+}
+```
+
+**Field descriptions:**
+- `title` — Project name (displays in portfolio)
+- `description` — One-line description (shows in grid)
+- `type` — `"demo"` (your project) or `"client"` (client work)
+- `status` — `"live"` or `"building"`
+- `live_url` — Link to deployed site (use `"#"` if not ready)
+- `github_folder` — Path to project folder
+- `screenshot_path` — Path to hero screenshot (from repo root)
+- `tags` — Array of tech stack labels
+- `performance` — Lighthouse metrics
+  - `lighthouse` — Score 0-100
+  - `core_web_vitals` — `"all_good"` or `"pending"`
+  - `bundle_size_kb` — Gzipped size
+- `featured` — `true` to show in main README, `false` to hide
+- `order` — Display order (lower number = higher position)
+
+### 4. Add Screenshot
+
+Place a hero screenshot at the path specified in `screenshot_path`:
 
 ```
-projects/my-new-project/
+assets/screenshots/my-project-hero.png
+```
+
+**Guidelines:**
+- Size: 1280px × 720px (16:9 ratio)
+- Format: PNG or WebP
+- Size: < 500KB
+- Show the hero or main view of your site
+
+For quick screenshots:
+```bash
+# Using Vercel CLI
+vercel --prod --scope manidhar8008
+
+# Then screenshot the live site
+# Or use browser DevTools → Capture Screenshot
+```
+
+### 5. Build & Deploy
+
+```bash
+npm run build
+npm run preview  # Test locally
+```
+
+Deploy to Vercel or Netlify (one-click from GitHub).
+
+Update `live_url` in meta.json with your deployment URL.
+
+### 6. Update README Portfolio
+
+Your project automatically appears in README.md once:
+- ✅ `featured: true` in meta.json
+- ✅ Screenshot exists at specified path
+- ✅ meta.json is valid JSON
+
+The next time someone views the README, they'll see your project featured.
+
+## File Structure
+
+Each project should follow this structure:
+
+```
+projects/my-project/
+├── meta.json              ← Project metadata (auto-generated)
 ├── package.json
 ├── vite.config.js
 ├── tailwind.config.js
 ├── index.html
+├── README.md              ← Project-specific readme
 ├── src/
 │   ├── components/
 │   ├── pages/
 │   ├── App.jsx
 │   └── main.jsx
 ├── public/
-└── README.md
+│   └── images/
+└── dist/                  ← Build output (gitignored)
 ```
-
-### 3. Configure Your Project
-
-Edit `package.json`:
-- Update name, description, version
-- Add custom scripts if needed
-
-Edit `vite.config.js`:
-- Customize build options
-
-Edit `tailwind.config.js`:
-- Extend theme colors and animations
-
-### 4. Add to Repository
-
-1. Create project in `/projects/`
-2. Add README.md with project description
-3. Commit changes
-4. GitHub Actions will automatically build and audit
 
 ## Naming Conventions
 
-- Project folders: `kebab-case` (e.g., `ai-saas-landing`)
-- Component files: `PascalCase` (e.g., `HeroSection.jsx`)
-- Utility functions: `camelCase` (e.g., `formatDate.js`)
-- CSS classes: lowercase with hyphens (e.g., `hero-section`)
+Follow these conventions for consistency:
 
-## Project Metadata
+### Project Folders
+- **Format**: `kebab-case`
+- **Example**: `ai-saas-landing`, `fintech-dashboard`, `portfolio-dark`
+- **Not**: `AiSaasLanding`, `AI SaaS Landing`, `ai_saas_landing`
 
-Each project should include:
+### File Names
+- **Components**: `PascalCase` → `HeroSection.jsx`, `PricingCard.jsx`
+- **Utils**: `camelCase` → `formatPrice.js`, `validateEmail.js`
+- **CSS**: `kebab-case` → `hero-section`, `pricing-card`
 
-**projects/my-project/package.json**
+### Meta.json Tags
+Use consistent tags:
+- **Framework**: `React`, `Next.js`, `Vue`
+- **Styling**: `Tailwind`, `CSS`, `Sass`
+- **Animation**: `Framer Motion`, `GSAP`, `Animations`
+- **Type**: `Landing Page`, `Portfolio`, `Dashboard`, `SaaS`, `MVP`
+- **Features**: `Dark Mode`, `Responsive`, `Accessible`, etc.
+
+## Project Types
+
+### Demo (`type: "demo"`)
+Your personal projects, experiments, and templates.
+
+Organized under: **✨ Personal Demos & Experiments**
+
+### Client (`type: "client"`)
+Work you did for real clients (with permission).
+
+Organized under: **🤝 Client Work**
+
+**Note**: Use client projects strategically to show your range and prove results.
+
+## Featured vs Hidden
+
+- **`featured: true`** — Shows in main README portfolio grid
+- **`featured: false`** — Hidden from main view, but still in `/projects/` folder
+
+Use `featured: false` for:
+- Work in progress
+- Internal tools
+- Deprecated projects
+- Projects not ready to showcase
+
+## Updating Existing Projects
+
+### Change Status
 ```json
 {
-  "name": "my-project",
-  "description": "Brief description",
-  "version": "1.0.0",
-  "author": "Your Name",
-  "homepage": "https://my-project.vercel.app"
+  "status": "live",
+  "live_url": "https://example.vercel.app"
 }
 ```
 
-**projects/my-project/README.md**
-```markdown
-# My Project
+### Update Screenshot
+Replace the image file at `screenshot_path`. No code changes needed.
 
-Brief description.
-
-## Live Demo
-[View Live](https://my-project.vercel.app)
-
-## Features
-- Feature 1
-- Feature 2
-
-## Tech Stack
-- React, Vite, Tailwind CSS
-
-## Getting Started
+### Reorder Projects
+Change the `order` field:
+```json
+{
+  "order": 1  // First position
+}
 ```
 
-## Deployment
+### Update Performance Metrics
+After deployment, update performance:
+```bash
+npm run build
+npm run preview
 
-Each project is independently deployable:
-
-1. **Vercel**: Connect repository, select project folder
-2. **Netlify**: Same approach
-3. **GitHub Pages**: Configure in settings
-
-## Reusable Components
-
-Use shared components from `/components/`:
-
-```jsx
-import Button from '../../components/ui/Button';
-import Hero from '../../components/sections/Hero';
-import Features from '../../components/sections/Features';
+# Then check with Lighthouse
+# Update meta.json with new scores
 ```
 
-## Screenshots
-
-Add screenshots to `/assets/screenshots/`:
-```
-assets/screenshots/
-├── ai-saas-landing/
-│   ├── hero.png
-│   ├── features.png
-│   └── pricing.png
-├── startup-mvp/
-└── ...
+```json
+{
+  "performance": {
+    "lighthouse": 95,
+    "core_web_vitals": "all_good",
+    "bundle_size_kb": 42
+  }
+}
 ```
 
-## Performance
+## Auto-Generation & Automation
 
-- Run Lighthouse audits regularly
-- Check built file sizes: `npm run build && npm run preview`
-- Use WebP for images
-- Code split components when possible
+The portfolio grid is **auto-generated** from meta.json files:
 
-## Best Practices
+```bash
+# Scan all projects and show their status
+node scripts/generate-projects-grid.js
+```
 
-✅ Keep projects isolated and independently runnable
-✅ Use TypeScript for larger projects
-✅ Document custom configurations
-✅ Test components thoroughly
-✅ Optimize images and assets
-✅ Use environment variables for configuration
+This command:
+1. Scans `/projects/` for `meta.json` files
+2. Reads all project metadata
+3. Generates markdown for featured projects
+4. Shows summary statistics
 
-❌ Don't create circular dependencies
-❌ Don't hardcode sensitive data
-❌ Don't commit node_modules
-❌ Don't ignore TypeScript/ESLint warnings
+**Future enhancement**: This will auto-update README.md directly.
+
+## Quick Checklist
+
+Before marking `featured: true`:
+
+- [ ] Project is deployed (or `live_url` is a demo site)
+- [ ] Screenshot added to `assets/screenshots/`
+- [ ] `meta.json` is valid JSON
+- [ ] Lighthouse score 85+
+- [ ] Mobile responsive
+- [ ] All tags are relevant
+- [ ] Description is clear and benefit-focused
+- [ ] `type` is correct (`demo` or `client`)
+
+## Examples
+
+### Example 1: New Landing Page
+
+```bash
+./create-project.sh
+# Input: ai-affiliate-tool
+# Type: demo
+# Description: Landing page for AI affiliate program
+
+cd projects/ai-affiliate-tool
+npm run dev
+
+# ... build your landing page ...
+
+npm run build
+npm run preview
+
+# Deploy to Vercel
+# Add screenshot to assets/screenshots/ai-affiliate-tool-hero.png
+# Update meta.json:
+# - Set live_url
+# - Update tags (["React", "Tailwind", "Landing Page", "Conversion"])
+# - Set featured: true
+# - Update performance metrics (run Lighthouse)
+```
+
+### Example 2: Client Portfolio
+
+```bash
+./create-project.sh
+# Input: acme-corp-site
+# Type: client
+# Description: Custom website for ACME Corporation
+
+# ... develop ...
+
+# Update meta.json:
+# - type: "client"
+# - featured: true (if client approves)
+```
+
+## Troubleshooting
+
+### Screenshot not showing?
+- Check path in `screenshot_path` is correct
+- Verify image file exists
+- Use relative path from repo root
+- Try PNG format if WebP fails
+
+### meta.json syntax error?
+```bash
+# Validate JSON
+node -e "console.log(JSON.parse(require('fs').readFileSync('projects/my-project/meta.json')))"
+```
+
+### Project not appearing in README?
+- Is `featured: true`?
+- Does screenshot exist?
+- Is meta.json valid?
+- Run `node scripts/generate-projects-grid.js` to debug
+
+### Performance metrics outdated?
+After code changes or optimizations:
+1. Run `npm run build`
+2. Test with Lighthouse (DevTools or `npm run preview`)
+3. Update values in `meta.json`
+
+## Next Steps
+
+1. **Create your first project**: `./create-project.sh`
+2. **Develop**: `npm run dev` and build something great
+3. **Add screenshot**: Place in `assets/screenshots/`
+4. **Update meta.json**: Fill in all fields
+5. **Set featured**: `"featured": true`
+6. **Deploy**: Push to GitHub
+7. **See it live**: Check your README portfolio! ✨
+
+---
+
+## Related Docs
+
+- **[Quick Start](../QUICKSTART.md)** — Get started in 5 minutes
+- **[Architecture](./ARCHITECTURE.md)** — System design deep dive
+- **[Components](./COMPONENTS.md)** — Reusable UI library
+- **[Deployment](./DEPLOYMENT.md)** — Production deployment guide
